@@ -10,7 +10,7 @@ function HomeSection() {
             </h1>
             {/*  Banner  */}
             <img
-                src={assets.hyveron_slogan_black}
+                src={assets.hyveron_slogan_gradient}
                 alt="Company Banner"
                 className="w-ful g-auto rounded-lg shadow-lg mb-8"
             />
