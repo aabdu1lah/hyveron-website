@@ -5,21 +5,21 @@ import FadeInWhenVisible from "../components/FadeInWhenVisible.jsx";
 function BlogSection() {
     const blogPosts = [
         {
-            id: 1,
+            id: "product-x",
             title: "Understanding Product X: A Deep Dive",
-            description: "Everything about our flagship Product X and how it transforms businesses.",
+            description: "Everything about our flagship Product X — features, benefits, and how it transforms businesses in the modern world.",
             youtubeId: "dQw4w9WgXcQ",
         },
         {
-            id: 2,
+            id: "efficiency-tips",
             title: "5 Tips for Maximizing Efficiency",
-            description: "Practical strategies to get the most out of our services.",
+            description: "Practical strategies to optimize your workflow and leverage our services effectively, boosting productivity across the board.",
             youtubeId: "sFhX8Pj-xQ0",
         },
         {
-            id: 3,
+            id: "future-automation",
             title: "The Future of Automation",
-            description: "Our insights into the trends shaping the future of the industry.",
+            description: "Our insights into upcoming trends, AI-driven innovation, and the impact of digital transformation on the industry.",
             youtubeId: "M7lc1UVf-VE",
         },
     ];
@@ -31,19 +31,20 @@ function BlogSection() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
                 {blogPosts.map((post, i) => (
-                    <FadeInWhenVisible delay={i * 0.2}>
+                    <FadeInWhenVisible key={post.id} delay={i * 0.2}>
                         <div
-                            key={post.id}
-                            className="p-6 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 border hover:scale-105"
+                            className="p-6 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 border flex flex-col min-h-[480px]" // Adjusted min-h slightly for content
                             style={{ backgroundColor: colors.blackTone, borderColor: colors.verdigris }}
                         >
-                            <h3 className="text-xl font-semibold mb-2 font-brand" style={{ color: colors.whiteTone }}>
+                            {/* Title with fixed height (2 lines for text-xl) */}
+                            <h3 className="text-xl font-semibold mb-2 font-brand line-clamp-2 h-14 overflow-hidden" style={{ color: colors.whiteTone }}>
                                 {post.title}
                             </h3>
-                            <p className="text-base leading-relaxed mb-4 opacity-90" style={{ color: colors.whiteTone }}>
+                            {/* Description with fixed height (3 lines for text-base) */}
+                            <p className="text-base leading-relaxed mb-4 opacity-90 line-clamp-3 h-20 overflow-hidden" style={{ color: colors.whiteTone }}>
                                 {post.description}
                             </p>
-                            <div className="aspect-video w-full rounded-md overflow-hidden mb-4">
+                            <div className="aspect-video w-full rounded-md overflow-hidden mb-4 flex-grow"> {/* flex-grow to push button down */}
                                 <iframe
                                     className="w-full h-full"
                                     src={`https://www.youtube.com/embed/${post.youtubeId}`}
@@ -53,17 +54,16 @@ function BlogSection() {
                                     allowFullScreen
                                 ></iframe>
                             </div>
+                            {/* Read More button */}
                             <a
-                                href={`https://www.youtube.com/watch?v=${post.youtubeId}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-block mt-2 px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity duration-300"
+                                href={`/blog/${post.id}`}
+                                className="mt-auto px-6 py-2 rounded-full text-sm font-medium hover:scale-105 transition-all duration-300 text-center"
                                 style={{
                                     background: `linear-gradient(90deg, ${colors.verdigris}, #5fd1c7)`,
                                     color: colors.whiteTone,
                                 }}
                             >
-                                Watch on YouTube
+                                Read More
                             </a>
                         </div>
                     </FadeInWhenVisible>
