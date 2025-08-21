@@ -3,6 +3,8 @@ import { colors } from "../constants/colors.js";
 import FadeInWhenVisible from "../components/FadeInWhenVisible.jsx";
 
 function AboutSection() {
+    const coreValues = ["Innovation", "Integration", "Customer Focus"];
+
     return (
         <section
             id="about"
@@ -30,12 +32,13 @@ function AboutSection() {
                             solutions.
                         </p>
                         <ul className="space-y-3">
-                            {["Innovation", "Integration", "Customer Focus"].map((value, i) => (
-                                <li key={i} className="flex items-center gap-2 text-whiteTone">
+                            {coreValues.map((value, i) => (
+                                <li key={i} className="flex items-center gap-2" style={{ color: colors.verdigrisLight }}>
                                     <span
                                         className="h-2 w-2 rounded-full"
-                                        style={{ backgroundColor: colors.verdigris }}
-                                    ></span>
+                                        style={{ backgroundColor: colors.blackTone }}
+                                    >
+                                    </span>
                                     {value}
                                 </li>
                             ))}
