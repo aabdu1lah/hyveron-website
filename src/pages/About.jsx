@@ -1,6 +1,5 @@
 import React from "react";
 import {colors} from "../constants/colors.js";
-import HomeSection from "./Home.jsx";
 
 function AboutSection() {
     return (
