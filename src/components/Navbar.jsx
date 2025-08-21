@@ -1,6 +1,7 @@
 import React from "react";
 import { colors } from "../constants/colors.js";
 import { assets } from "../assets/assets.js";
+import { motion } from "framer-motion";
 
 function Navbar({ activeSection, setActiveSection }) {
     const navItems = [
@@ -12,7 +13,10 @@ function Navbar({ activeSection, setActiveSection }) {
     ];
 
     return (
-        <nav
+        <motion.nav
+            initial={{y: -80, opacity: 0}}
+            animate={{y: 0, opacity: 1}}
+            transition={{duration: 0.6}}
             className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-verdigris/90 shadow-md"
         >
             <div className="container mx-auto flex justify-between items-center py-3 px-6">
@@ -23,7 +27,7 @@ function Navbar({ activeSection, setActiveSection }) {
                         alt="Hyveron Logo"
                         className="h-10 w-10 mr-2 rounded-full"
                     />
-                    <span className="text-2xl font-bold font-brand tracking-tight" style={{ color: colors.blackTone }}>
+                    <span className="text-2xl font-bold font-brand tracking-tight" style={{color: colors.blackTone}}>
                         Hyveron
                     </span>
                 </div>
@@ -46,7 +50,7 @@ function Navbar({ activeSection, setActiveSection }) {
                     ))}
                 </ul>
             </div>
-        </nav>
+        </motion.nav>
     );
 }
 
