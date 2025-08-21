@@ -1,6 +1,8 @@
 import React from "react";
+import {colors} from "../constants/colors.js";
+import {assets} from "../assets/assets.js";
 
-function Navbar({ activeSection, setActiveSection, colors, assets }) {
+function Navbar({ activeSection, setActiveSection }) {
     return (
         <nav className="p-4 shadow-md" style={{ backgroundColor: colors.verdigris }}>
             <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
@@ -91,7 +93,7 @@ function Navbar({ activeSection, setActiveSection, colors, assets }) {
                 </ul>
             </div>
         </nav>
-    )
+    );
 }
 
 export default Navbar
