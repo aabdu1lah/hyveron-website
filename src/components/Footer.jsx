@@ -27,9 +27,9 @@ function Footer() {
             <p className="text-sm" style={{color: colors.whiteTone}}>
                 &copy; {new Date().getFullYear()} Hyveron. All rights reserved.
             </p>
-            <p className="text-xs mt-1 opacity-70" style={{color: colors.whiteTone}}>
-                Designed with ❤️ and built with React & Tailwind CSS.
-            </p>
+            {/*<p className="text-xs mt-1 opacity-70" style={{color: colors.whiteTone}}>*/}
+            {/*    Designed with ❤️ and built with React & Tailwind CSS.*/}
+            {/*</p>*/}
         </motion.footer>
     );
 }

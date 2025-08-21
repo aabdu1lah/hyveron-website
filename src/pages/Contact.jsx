@@ -4,7 +4,13 @@ import FadeInWhenVisible from "../components/FadeInWhenVisible.jsx";
 
 function ContactSection() {
     return (
-        <section id="contact" className="py-20 bg-gradient-to-b from-blackTone via-darkGrey to-blackTone">
+        <section
+            id="contact"
+            className="py-20 bg-gradient-to-b from-blackTone via-darkGrey to-blackTone"
+            style={{
+                background: `linear-gradient(to bottom, ${colors.blackTone}, ${colors.darkGrey}, ${colors.blackTone})`
+            }}
+        >
             <h2 className="text-3xl md:text-5xl font-bold font-brand text-center mb-12" style={{ color: colors.whiteTone }}>
                 Get In Touch
             </h2>
@@ -30,8 +36,9 @@ function ContactSection() {
                                     type={field === "email" ? "email" : "text"}
                                     id={field}
                                     name={field}
-                                    className="w-full p-3 rounded-md border focus:outline-none focus:ring-2"
+                                    className="w-full p-3 rounded-md border focus:outline-none focus:ring-2 focus:ring-offset-2"
                                     style={{
+                                        outlineColor: colors.verdigris,
                                         backgroundColor: colors.darkGrey,
                                         color: colors.whiteTone,
                                         borderColor: colors.verdigris,

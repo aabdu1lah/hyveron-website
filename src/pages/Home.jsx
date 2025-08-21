@@ -5,7 +5,13 @@ import FadeInWhenVisible from "../components/FadeInWhenVisible.jsx";
 
 function HomeSection() {
     return (
-        <section id="home" className="relative py-20 text-center bg-gradient-to-b from-blackTone via-darkGrey to-blackTone">
+        <section
+            id="home"
+            className="relative py-20 text-center"
+            style={{
+                background: `linear-gradient(to bottom, ${colors.blackTone}, ${colors.darkGrey}, ${colors.blackTone})`
+            }}
+        >
             <FadeInWhenVisible>
                 <h1
                     className="text-4xl md:text-6xl font-extrabold font-brand mb-6 tracking-tight"
@@ -45,7 +51,7 @@ function HomeSection() {
                         Explore Our Products
                     </button>
                     <button
-                        className="px-8 py-3 rounded-full text-lg font-semibold border hover:scale-105 transition-all duration-300"
+                        className="px-8 py-3 rounded-full text-lg font-semibold border hover:scale-105 hover:bg-opacity-10 transition-all duration-300"
                         style={{
                             borderColor: colors.verdigris,
                             color: colors.verdigris,

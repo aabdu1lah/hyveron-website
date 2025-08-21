@@ -25,7 +25,13 @@ function BlogSection() {
     ];
 
     return (
-        <section id="blog" className="py-20 bg-gradient-to-b from-darkGrey to-blackTone">
+        <section
+            id="blog"
+            className="py-20"
+            style={{
+                background: `linear-gradient(to bottom, ${colors.darkGrey}, ${colors.blackTone})`
+            }}
+        >
             <h2 className="text-3xl md:text-5xl font-bold font-brand text-center mb-12" style={{ color: colors.whiteTone }}>
                 Our Latest Insights & Videos
             </h2>
@@ -52,6 +58,7 @@ function BlogSection() {
                                     frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
+                                    style={{ background: colors.darkGrey }}
                                 ></iframe>
                             </div>
                             {/* Read More button */}

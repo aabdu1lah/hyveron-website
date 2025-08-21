@@ -4,7 +4,13 @@ import FadeInWhenVisible from "../components/FadeInWhenVisible.jsx";
 
 function AboutSection() {
     return (
-        <section id="about" className="py-20 bg-gradient-to-b from-darkGrey to-blackTone">
+        <section
+            id="about"
+            className="py-20"
+            style={{
+                background: `linear-gradient(to bottom right, ${colors.darkGrey}, ${colors.blackTone})`,
+            }}
+        >
             <FadeInWhenVisible>
                 <h2
                     className="text-3xl md:text-5xl font-bold font-brand text-center mb-12"
@@ -42,6 +48,7 @@ function AboutSection() {
                         src="https://placehold.co/600x400/212529/F8F9FA?text=Our+Team"
                         alt="Our Team"
                         className="rounded-xl shadow-2xl"
+                        style={{ border: `2px solid ${colors.verdigris}` }}
                     />
                 </FadeInWhenVisible>
             </div>

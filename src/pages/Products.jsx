@@ -25,7 +25,13 @@ function ProductsSection() {
     ];
 
     return (
-        <section id="products" className="py-20 bg-gradient-to-b from-blackTone via-darkGrey to-blackTone">
+        <section
+            id="products"
+            className="py-20"
+            style={{
+                background: `linear-gradient(to bottom, ${colors.blackTone}, ${colors.darkGrey}, ${colors.blackTone})`
+            }}
+        >
             <h2 className="text-3xl md:text-5xl font-bold font-brand text-center mb-12" style={{ color: colors.whiteTone }}>
                 Our Products & Services
             </h2>
