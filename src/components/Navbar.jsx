@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { colors } from "../constants/colors.js";
 import { assets } from "../assets/assets.js";
 import { motion } from "framer-motion";
 
 function Navbar({ activeSection, setActiveSection }) {
+    const [menuOpen, setMenuOpen] = useState(false);
+
     const navItems = [
         { id: "home", label: "Home" },
         { id: "about", label: "About Us" },
@@ -32,14 +34,14 @@ function Navbar({ activeSection, setActiveSection }) {
                     />
                     <span
                         className="text-2xl font-bold font-brand tracking-tight"
-                        style={{ color: colors.blackTone }}
+                        style={{ color: colors.whiteTone }}
                     >
                         Hyveron
                     </span>
                 </div>
 
-                {/* Navigation */}
-                <ul className="flex space-x-6 text-lg font-medium">
+                {/* Desktop Navigation */}
+                <ul className="hidden md:flex space-x-6 text-lg font-medium">
                     {navItems.map((item) => (
                         <li key={item.id}>
                             <button
@@ -75,7 +77,66 @@ function Navbar({ activeSection, setActiveSection }) {
                         </li>
                     ))}
                 </ul>
+
+                {/* Mobile Hamburger */}
+                <div className="md:hidden">
+                    <button
+                        onClick={() => setMenuOpen(!menuOpen)}
+                        style={{ color: colors.whiteTone }}
+                        className="text-2xl focus:outline-none"
+                    >
+                        ☰
+                    </button>
+                </div>
             </div>
+
+            {menuOpen && (
+                <motion.div
+                    initial={{ x: "100%", opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: "100%", opacity: 0 }}
+                    transition={{ duration: 0.35, ease: "easeInOut" }}
+                    className="md:hidden fixed top-0 right-0 w-full h-full shadow-xl  z-40"
+                    style={{
+                        background: `linear-gradient(to bottom, ${colors.blackTone}, ${colors.darkGrey})`,
+                    }}
+                >
+                    {/* Close button */}
+                    <button
+                        onClick={() => setMenuOpen(false)}
+                        className="absolute top-3 right-3 text-2xl"
+                        style={{ color: colors.whiteTone }}
+                    >
+                        ✕
+                    </button>
+
+                    {/* Menu items */}
+                    <div className="flex flex-col space-y-3 mt-12 px-6">
+                        {navItems.map((item) => (
+                            <motion.button
+                                key={item.id}
+                                onClick={() => {
+                                    setActiveSection(item.id);
+                                    setMenuOpen(false);
+                                }}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="py-2 px-4 rounded-md text-base font-medium transition-all text-left"
+                                style={{
+                                    color:
+                                        activeSection === item.id
+                                            ? colors.verdigris
+                                            : colors.whiteTone,
+                                    border: `1px solid ${colors.verdigris}`,
+                                }}
+                            >
+                                {item.label}
+                            </motion.button>
+                        ))}
+                    </div>
+                </motion.div>
+            )}
+
         </motion.nav>
     );
 }
