@@ -9,7 +9,7 @@ function Navbar({ activeSection, setActiveSection }) {
                 {/*  Company Logo  */}
                 <div className="flex items-center">
                     <img
-                        src={assets.hyveron_logo_black}
+                        src={assets.hyveron_mark_white}
                         alt="Hyveron Logo"
                         className="h-10 w-10 mr-2 rounded-full"
                     />
