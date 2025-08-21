@@ -13,7 +13,7 @@ function AboutSection() {
                     Founded in 2025, Hyveron has been a leader in Automation since. We pride ourselves on innovation, quality and unparalleled customer service. Our mission is to empower businesses by simplifying complex operations through innovative automation, intuitive apps, and comprehensive digital solutions.
                 </p>
                 <p className="text-ls loading-relaxed" style={{ color: colors.whiteTone }}>
-                    Our team of dedicated professionals works tirelessly to bring you cutting-edge technologies that meet your evolving needs. We believe in [Core Value 1], [Core Value 2] and [Core Value 3]
+                    Our team of dedicated professionals works tirelessly to bring you cutting-edge technologies that meet your evolving needs. We believe in Innovation, Integration and Customer Focus
                 </p>
             </div>
             <div>
