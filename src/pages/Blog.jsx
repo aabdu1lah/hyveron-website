@@ -1,38 +1,46 @@
-import React from 'react';
-import { colors } from '../constants/colors.js';
+import React from "react";
+import { colors } from "../constants/colors.js";
 
 function BlogSection() {
     const blogPosts = [
         {
             id: 1,
-            title: 'Understanding Product X: A Deep Dive',
-            description: 'Learn everything about our flagship Product X, from its features to its benefits and how it can transform your business.',
-            youtubeId: 'dQw4w9WgXcQ',
+            title: "Understanding Product X: A Deep Dive",
+            description: "Everything about our flagship Product X and how it transforms businesses.",
+            youtubeId: "dQw4w9WgXcQ",
         },
         {
             id: 2,
-            title: '5 Tips for Maximizing Efficiency with Our Service',
-            description: 'Discover practical strategies and tips to get the most out of our comprehensive service offerings.',
-            youtubeId: 'sFhX8Pj-xQ0',
+            title: "5 Tips for Maximizing Efficiency",
+            description: "Practical strategies to get the most out of our services.",
+            youtubeId: "sFhX8Pj-xQ0",
         },
         {
             id: 3,
-            title: 'The Future of [Your Industry]: Our Vision',
-            description: 'Explore our insights into the upcoming trends and innovations shaping the future of [Your Industry].',
-            youtubeId: 'M7lc1UVf-VE',
+            title: "The Future of Automation",
+            description: "Our insights into the trends shaping the future of the industry.",
+            youtubeId: "M7lc1UVf-VE",
         },
     ];
 
     return (
-        <section id="blog" className="py-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center" style={{ color: colors.whiteTone }}>
+        <section id="blog" className="py-20 bg-gradient-to-b from-darkGrey to-blackTone">
+            <h2 className="text-3xl md:text-5xl font-bold font-brand text-center mb-12" style={{ color: colors.whiteTone }}>
                 Our Latest Insights & Videos
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
                 {blogPosts.map((post) => (
-                    <div key={post.id} className="p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" style={{ backgroundColor: colors.blackTone, border: `1px solid ${colors.verdigris}` }}>
-                        <h3 className="text-xl font-semibold mb-2" style={{ color: colors.whiteTone }}>{post.title}</h3>
-                        <p className="text-base leading-relaxed mb-4" style={{ color: colors.whiteTone }}>{post.description}</p>
+                    <div
+                        key={post.id}
+                        className="p-6 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 border hover:scale-105"
+                        style={{ backgroundColor: colors.blackTone, borderColor: colors.verdigris }}
+                    >
+                        <h3 className="text-xl font-semibold mb-2 font-brand" style={{ color: colors.whiteTone }}>
+                            {post.title}
+                        </h3>
+                        <p className="text-base leading-relaxed mb-4 opacity-90" style={{ color: colors.whiteTone }}>
+                            {post.description}
+                        </p>
                         <div className="aspect-video w-full rounded-md overflow-hidden mb-4">
                             <iframe
                                 className="w-full h-full"
@@ -48,9 +56,12 @@ function BlogSection() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-block mt-2 px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity duration-300"
-                            style={{ backgroundColor: colors.verdigris, color: colors.whiteTone }}
+                            style={{
+                                background: `linear-gradient(90deg, ${colors.verdigris}, #5fd1c7)`,
+                                color: colors.whiteTone,
+                            }}
                         >
-                            Watch Video on YouTube
+                            Watch on YouTube
                         </a>
                     </div>
                 ))}

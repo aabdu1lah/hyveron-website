@@ -1,50 +1,65 @@
-import React, { useState } from 'react'
-import { colors } from "./constants/colors.js";
-
+import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar.jsx";
-import Footer from "./components/Footer.jsx";
-
 import HomeSection from "./pages/Home.jsx";
 import AboutSection from "./pages/About.jsx";
 import ProductsSection from "./pages/Products.jsx";
 import BlogSection from "./pages/Blog.jsx";
 import ContactSection from "./pages/Contact.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
-    const [activeSection, setActiveSection] = useState('home');
+    const [activeSection, setActiveSection] = useState("home");
 
-    // Helper function to render sections based on active section state
-    const renderSection = () => {
-        switch (activeSection) {
-            case 'home':
-                return <HomeSection />
-            case 'about':
-                return <AboutSection />
-            case 'products':
-                return <ProductsSection />
-            case 'blog':
-                return <BlogSection />
-            case 'contact':
-                return <ContactSection />
-            default:
-                return <HomeSection />
+    // Track scroll position and update active section
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = ["home", "about", "products", "blog", "contact"];
+            let current = "home";
+
+            for (let id of sections) {
+                const element = document.getElementById(id);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top <= 100 && rect.bottom >= 100) {
+                        current = id;
+                        break;
+                    }
+                }
+            }
+
+            setActiveSection(current);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    // Smooth scroll when nav item clicked
+    const scrollToSection = (id) => {
+        const section = document.getElementById(id);
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
         }
-    }
+    };
 
     return (
-        <div className="min-h-screen font-inter" style={{ backgroundColor: colors.blackTone, color: colors.whiteTone }}>
-            {/*  Navbar  */}
-            <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
+        <div className="bg-blackTone min-h-screen font-brand">
+            {/* Navbar */}
+            <Navbar activeSection={activeSection} setActiveSection={scrollToSection} />
 
-            {/*  Main Content  */}
-            <main className="container p-6 md:p-8 mx-auto">
-                {renderSection()}
+            {/* Sections */}
+            <main className="pt-20"> {/* padding to offset fixed navbar */}
+                <div id="home"><HomeSection /></div>
+                <div id="about"><AboutSection /></div>
+                <div id="products"><ProductsSection /></div>
+                <div id="blog"><BlogSection /></div>
+                <div id="contact"><ContactSection /></div>
             </main>
 
-            {/*  Footer  */}
+            {/* Footer */}
             <Footer />
         </div>
     );
 }
 
-export default App
+export default App;
