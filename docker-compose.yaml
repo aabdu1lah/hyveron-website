@@ -6,5 +6,5 @@ services:
       dockerfile: Dockerfile
     image: hyveron-frontend
     ports:
-      - "2026:80"  # host:container
+      - "8081:80"  # host:container
     restart: always
