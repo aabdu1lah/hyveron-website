@@ -1,0 +1,10 @@
+services:
+  frontend:
+    container_name: hyveron-frontend
+    build:
+      context: .   # current directory (where Dockerfile is)
+      dockerfile: Dockerfile
+    image: hyveron-frontend
+    ports:
+      - "2026:80"  # host:container
+    restart: always
