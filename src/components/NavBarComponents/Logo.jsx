@@ -10,9 +10,9 @@ export default function Logo({
 }) {
   const texts = [
     "Hyveron",
-    "About Hyveron",
-    "Hyveron Products",
-    "Hyveron Insights",
+    "About",
+    "Products",
+    "Insights",
     "Contact Us",
   ];
 
@@ -38,9 +38,9 @@ export default function Logo({
             !showContactText
           )
             isActive = true;
-          if (text === "About Hyveron" && showAboutText) isActive = true;
-          if (text === "Hyveron Products" && showProductsText) isActive = true;
-          if (text === "Hyveron Insights" && showBlogText) isActive = true;
+          if (text === "About" && showAboutText) isActive = true;
+          if (text === "Products" && showProductsText) isActive = true;
+          if (text === "Insights" && showBlogText) isActive = true;
           if (text === "Contact Us" && showContactText) isActive = true;
 
           return (
