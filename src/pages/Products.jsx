@@ -1,50 +1,105 @@
-import React from "react";
+// src/pages/ProductsSection.jsx
+import React, { useRef, useState } from "react";
+import Slider from "react-slick";
 import { colors } from "../constants/colors.js";
-import FadeInWhenVisible from "../components/FadeInWhenVisible.jsx";
+import ProductCard from "../components/Cards/ProductCard.jsx";
+import SliderArrows from "../components/Cards/SliderArrows.jsx";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function ProductsSection() {
-    const products = [
-        { id: "product-a", name: "Product A", description: "An innovative solution designed to streamline your operations and boost efficiency.", image: "https://placehold.co/400x300/71ADAC/212529?text=Product+A" },
-        { id: "service-b", name: "Service B", description: "Our comprehensive service offers expert guidance and tailored business solutions.", image: "https://placehold.co/400x300/71ADAC/212529?text=Service+B" },
-        { id: "product-c", name: "Product C", description: "The next generation of smart automation with enhanced performance.", image: "https://placehold.co/400x300/71ADAC/212529?text=Product+C" },
-    ];
+  const sliderRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-    return (
-        <section id="products" className="py-12 sm:py-20 bg-gradient-to-b from-blackTone via-darkGrey to-blackTone">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold font-brand text-center mb-8 sm:mb-12" style={{ color: colors.whiteTone }}>
-                Our Products & Services
-            </h2>
-            {/* Mobile: horizontal scroll, Desktop: grid */}
-            <div className="flex overflow-x-auto space-x-4 px-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-6 sm:space-x-0 max-w-6xl mx-auto">
-                {products.map((product, i) => (
-                    <FadeInWhenVisible key={product.id} delay={i * 0.2}>
-                        <div
-                            className="min-w-[250px] sm:min-w-0 flex-shrink-0 sm:flex-shrink p-4 sm:p-6 rounded-lg sm:rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 border flex flex-col h-[360px] sm:h-[420px]"
-                            style={{ backgroundColor: colors.blackTone, borderColor: colors.verdigris }}
-                        >
-                            <img src={product.image} alt={product.name} className="w-full h-32 sm:h-48 object-cover rounded-md mb-3 sm:mb-4" />
-                            <h3 className="text-base sm:text-lg font-semibold mb-2 font-brand line-clamp-2 h-10 sm:h-14 overflow-hidden" style={{ color: colors.whiteTone }}>
-                                {product.name}
-                            </h3>
-                            <p className="text-xs sm:text-sm leading-relaxed opacity-90 line-clamp-3 h-14 sm:h-20 overflow-hidden" style={{ color: colors.whiteTone }}>
-                                {product.description}
-                            </p>
-                            <a
-                                href={`/products/${product.id}`}
-                                className="mt-auto px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 hover:scale-105 text-center"
-                                style={{
-                                    background: `linear-gradient(90deg, ${colors.verdigris}, #5fd1c7)`,
-                                    color: colors.whiteTone,
-                                }}
-                            >
-                                Learn More
-                            </a>
-                        </div>
-                    </FadeInWhenVisible>
-                ))}
+  const products = [
+    {
+      id: "product-a",
+      name: "bee",
+      description: "beeeeeeeeeeeee",
+      image: "./src/assets/bee_flower.webp",
+    },
+    {
+      id: "product-b",
+      name: "person",
+      description: "person is a human being, a member of the species",
+      image: "./src/assets/jew.webp",
+    },
+    {
+      id: "product-c",
+      name: "Top 10 reasons why speed is a baddie",
+      description:
+        "The title says it all. Speed is bad, mkay? Don't do speed, kids.",
+      image: "./src/assets/speed.webp",
+    },
+    // ...other products (clean versions)
+  ];
+
+  const headerMargin = "mb-5";
+  const descriptionMargin = "mb-8";
+  const buttonMargin = "mt-auto";
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 800,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: "20%",
+    autoplay: false,
+    arrows: false,
+    beforeChange: (_, next) => setCurrentIndex(next),
+  };
+
+  const handleCardClick = (index) => {
+    if (index === currentIndex) return;
+    const total = products.length;
+    const lastIndex = total - 1;
+
+    if (currentIndex === lastIndex && index === 0) {
+      sliderRef.current.slickNext();
+    } else if (currentIndex === 0 && index === lastIndex) {
+      sliderRef.current.slickPrev();
+    } else {
+      sliderRef.current.slickGoTo(index);
+    }
+  };
+
+  return (
+    <section className="min-h-screen flex flex-col items-center justify-center px-4 py-12 sm:py-20">
+      <h2
+        className="text-2xl sm:text-3xl md:text-5xl font-bold font-brand text-center mb-8 sm:mb-12"
+        style={{ color: colors.whiteTone }}
+      >
+        Our Products & Services
+      </h2>
+
+      <div className="relative w-full">
+        <Slider {...settings} ref={sliderRef}>
+          {products.map((product, index) => (
+            <div
+              key={product.id}
+              className="px-4 cursor-pointer"
+              onClick={() => handleCardClick(index)}
+            >
+              <ProductCard
+                product={product}
+                headerMargin={headerMargin}
+                descriptionMargin={descriptionMargin}
+                buttonMargin={buttonMargin}
+              />
             </div>
-        </section>
-    );
+          ))}
+        </Slider>
+
+        <SliderArrows
+          onPrev={() => sliderRef.current.slickPrev()}
+          onNext={() => sliderRef.current.slickNext()}
+        />
+      </div>
+    </section>
+  );
 }
 
 export default ProductsSection;
