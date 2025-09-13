@@ -9,17 +9,15 @@ function AboutSection() {
       className="py-12 sm:py-20 bg-gradient-to-b from-transparent to-transparent min-h-screen  items-center justify-center"
     >
       <div className="max-w-3xl mx-auto px-4 sm:px-6 w-full text-center">
-        <FadeInWhenVisible>
-          <img
-            src={assets.hyveron_mark_gradient}
-            alt="Hyveron Logo"
-            className="h-24 w-24 mx-auto mb-6 rounded-full"
-            style={{
-              mixBlendMode: "screen", // blends the logo with background
-              opacity: 0.9, // optional for subtle transparency
-            }}
-          />
-        </FadeInWhenVisible>
+        <img
+          src={assets.hyveron_mark_gradient}
+          alt="Hyveron Logo"
+          className="h-24 w-24 mx-auto mb-6 rounded-full"
+          style={{
+            mixBlendMode: "screen", // blends the logo with background
+            opacity: 0.9, // optional for subtle transparency
+          }}
+        />
 
         <FadeInWhenVisible delay={0.1}>
           <p
