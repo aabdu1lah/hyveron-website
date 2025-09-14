@@ -13,10 +13,10 @@ function SplashScreen({ onFinish }) {
     const timerLogoFade = setTimeout(() => setLogoFadeIn(true), 700);
 
     // Then slide logo
-    const timerLogoSlide = setTimeout(() => setLogoSlideIn(true), 1200);
+    const timerLogoSlide = setTimeout(() => setLogoSlideIn(true), 1400);
 
     // Animate text fade-in
-    const timerTextFade = setTimeout(() => setTextFadeIn(true), 1400);
+    const timerTextFade = setTimeout(() => setTextFadeIn(true), 1600);
 
     // Then slide text
     const timerTextSlide = setTimeout(() => setTextSlideIn(true), 1600);
