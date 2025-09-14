@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { assets } from "../assets/assets.js";
 function SplashScreen({ onFinish }) {
   const [showText, setShowText] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
@@ -8,8 +8,7 @@ function SplashScreen({ onFinish }) {
     document.body.classList.add("no-bg");
     const timer4 = setTimeout(() => {
       document.body.classList.remove("no-bg");
-      document.body.style.backgroundImage =
-        'url("/src/assets/smoothed_image3.webp")';
+      document.body.style.backgroundImage = `url(${assets.hyveron_smoothed_image3})`;
     }, 2000);
     const timer1 = setTimeout(() => setShowText(true), 700); // show text
     const timer2 = setTimeout(() => setFadeOut(true), 2500); // start fade-out
