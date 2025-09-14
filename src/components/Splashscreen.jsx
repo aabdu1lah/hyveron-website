@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { assets } from "../assets/assets.js";
-import bgimage from "../assets/hyverongradientbackground.avif";
+import bgimage from "../assets/hyveronGradientBackground.avif";
 function SplashScreen({ onFinish }) {
   const [showText, setShowText] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
