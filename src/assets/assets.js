@@ -18,6 +18,7 @@ import hyveronsmoothedimage3 from './smoothedimage3.webp'
 import human from './human.webp'
 import bee from './beeFlower.webp'
 import speed from './speed.webp'
+import hyveronbackgroundsvg from './hyveronbackground.svg'
 export const assets = {
     hyveronlogoblack,
     hyveronlogodark,
@@ -38,5 +39,6 @@ export const assets = {
     hyveronsmoothedimage3,
     human,
     bee,
-    speed
+    speed,
+    hyveronbackgroundsvg
 }

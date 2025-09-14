@@ -16,7 +16,7 @@ function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [zoomStyle, setZoomStyle] = useState({
     transform: "scale(1)",
-    transformOrigin: "top left",
+    transformOrigin: "top",
   });
 
   const sectionIds = ["home", "about", "products", "blog", "contact"];
@@ -59,7 +59,7 @@ function App() {
       const scale = 1 + (zoomTarget - 1) * easedProgress;
       setZoomStyle({
         transform: `scale(${scale})`,
-        transformOrigin: "top",
+        transformOrigin: "50% 6.8%",
       });
 
       if (progress < 1) {
@@ -98,9 +98,9 @@ function App() {
         <div
           className="fixed inset-0 overflow-hidden z-50"
           style={{
-            backgroundImage: `url(${assets.hyverongradientbackground})`,
+            backgroundImage: `url(${assets.hyveronbackgroundsvg})`,
             backgroundSize: "cover",
-            backgroundPosition: "top left",
+            backgroundPosition: "top",
             ...zoomStyle,
           }}
         >

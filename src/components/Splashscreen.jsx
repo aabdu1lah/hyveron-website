@@ -5,10 +5,10 @@ function SplashScreen({ onFinish }) {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    document.body.classList.add("no-bg");
+    // document.body.classList.add("no-bg");
     const timer4 = setTimeout(() => {
-      document.body.classList.remove("no-bg");
-      document.body.style.backgroundImage = `url(${assets.hyverongradientbackground})`;
+      // document.body.classList.remove("no-bg");
+      document.body.style.backgroundImage = `url(${assets.hyveronbackgroundsvg})`;
       document.body.style.backgroundSize = "cover";
       document.body.style.backgroundPosition = "top";
     }, 2000);

@@ -40,9 +40,9 @@ body {
 }
 
 /* Optional placeholder */
-body.no-bg {
-  background-image: orange; /* or a solid color */
-}
+/* body.no-bg {
+  background-image: orange;
+} */
 
 /* Shrink side cards */
 .slick-slide {
@@ -99,4 +99,8 @@ body.no-bg {
 .slick-dots li.slick-active button:before {
   background: #fff;  /* or colors.whiteTone */
   opacity: 1;
+}
+html, body {
+  min-height: 100vh;
+  margin: 0;
 }
