@@ -10,13 +10,13 @@ function SplashScreen({ onFinish }) {
 
   useEffect(() => {
     // Animate logo fade-in
-    const timerLogoFade = setTimeout(() => setLogoFadeIn(true), 300);
+    const timerLogoFade = setTimeout(() => setLogoFadeIn(true), 700);
 
     // Then slide logo
-    const timerLogoSlide = setTimeout(() => setLogoSlideIn(true), 1000);
+    const timerLogoSlide = setTimeout(() => setLogoSlideIn(true), 1200);
 
     // Animate text fade-in
-    const timerTextFade = setTimeout(() => setTextFadeIn(true), 1200);
+    const timerTextFade = setTimeout(() => setTextFadeIn(true), 1400);
 
     // Then slide text
     const timerTextSlide = setTimeout(() => setTextSlideIn(true), 1600);
