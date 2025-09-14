@@ -41,7 +41,7 @@ body {
 
 /* Optional placeholder */
 body.no-bg {
-  background-image: none; /* or a solid color */
+  background-image: orange; /* or a solid color */
 }
 
 /* Shrink side cards */

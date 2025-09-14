@@ -17,7 +17,7 @@ function ProductsSection() {
       id: "product-a",
       name: "bee",
       description: "beeeeeeeeeeeee",
-      image: "./src/assets/bee_flower.webp",
+      image: "/src/assets/bee_flower.webp",
     },
     {
       id: "product-b",

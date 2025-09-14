@@ -5,10 +5,10 @@ function SplashScreen({ onFinish }) {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    document.body.classList.add("no-bg");
+    // document.body.classList.add("no-bg");
     const timer4 = setTimeout(() => {
-      document.body.classList.remove("no-bg");
-      document.body.style.backgroundColor = "black";
+      // document.body.classList.remove("no-bg");
+      // document.body.style.backgroundColor = "black";
     }, 2000);
     const timer1 = setTimeout(() => setShowText(true), 700); // show text
     const timer2 = setTimeout(() => setFadeOut(true), 2500); // start fade-out
