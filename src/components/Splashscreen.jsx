@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { assets } from "../assets/assets.js";
+import bgimage from "../assets/hyverongradientbackground.webp";
 function SplashScreen({ onFinish }) {
   const [showText, setShowText] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // document.body.classList.add("no-bg");
+    document.body.classList.add("no-bg");
     const timer4 = setTimeout(() => {
-      // document.body.classList.remove("no-bg");
-      // document.body.style.backgroundColor = "black";
+      document.body.classList.remove("no-bg");
+      document.body.style.backgroundImage = `url(${bgimage})`;
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundPosition = "top";
     }, 2000);
     const timer1 = setTimeout(() => setShowText(true), 700); // show text
     const timer2 = setTimeout(() => setFadeOut(true), 2500); // start fade-out
