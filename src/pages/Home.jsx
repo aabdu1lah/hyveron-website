@@ -28,7 +28,7 @@ function HomeSection() {
           }`}
           style={{ color: colors.whiteTone }}
         >
-          Hyveron
+          Welcome to Hyveron
         </h1>
 
         <p
