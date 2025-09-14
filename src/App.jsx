@@ -66,7 +66,7 @@ function App() {
       if (progress < 1) {
         requestAnimationFrame(animate);
       } else {
-        // animation finished, wait 3 seconds before showing page
+        //animation finished, wait 3 seconds before showing page
         setTimeout(() => {
           setShowSplash(false);
           setShowPage(true);
