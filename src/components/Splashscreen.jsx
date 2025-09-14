@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { assets } from "../assets/assets.js";
-import bgimage from "../assets/hyveronGradientBackground.avif";
 function SplashScreen({ onFinish }) {
   const [showText, setShowText] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
@@ -9,7 +8,7 @@ function SplashScreen({ onFinish }) {
     document.body.classList.add("no-bg");
     const timer4 = setTimeout(() => {
       document.body.classList.remove("no-bg");
-      document.body.style.backgroundImage = `url(${bgimage})`;
+      document.body.style.backgroundImage = `url(${assets.hyverongradientbackground})`;
       document.body.style.backgroundSize = "cover";
       document.body.style.backgroundPosition = "top";
     }, 2000);

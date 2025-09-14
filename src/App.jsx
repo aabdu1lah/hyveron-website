@@ -8,7 +8,6 @@ import BlogSection from "./pages/Blog.jsx";
 import ContactSection from "./pages/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import { assets } from "./assets/assets.js";
-import bgImage from "./assets/hyveronGradientBackground.avif";
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
   const [navVisible, setNavVisible] = useState(false);
@@ -99,7 +98,7 @@ function App() {
         <div
           className="fixed inset-0 overflow-hidden z-50"
           style={{
-            backgroundImage: `url(${bgImage})`,
+            backgroundImage: `url(${assets.hyverongradientbackground})`,
             backgroundSize: "cover",
             backgroundPosition: "top left",
             ...zoomStyle,
