@@ -8,11 +8,13 @@ import BlogSection from "./pages/Blog.jsx";
 import ContactSection from "./pages/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import { assets } from "./assets/assets.js";
+
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
   const [navVisible, setNavVisible] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
   const [showPage, setShowPage] = useState(false);
+  const [pageReady, setPageReady] = useState(false); // NEW: controls when rest of app mounts
   const [activeSection, setActiveSection] = useState("home");
   const [zoomStyle, setZoomStyle] = useState({
     transform: "scale(1)",
@@ -21,7 +23,17 @@ function App() {
 
   const sectionIds = ["home", "about", "products", "blog", "contact"];
 
+  // Delay page mount (except splash background)
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setPageReady(true);
+    }, 3000); // delay everything else by 200ms
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!pageReady) return;
+
     const handleScroll = () => {
       const scrollPos = window.scrollY + window.innerHeight / 2;
       let current = "home";
@@ -41,12 +53,12 @@ function App() {
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pageReady]);
 
   const handleSplashFinish = () => {
     const start = performance.now();
-    const duration = 500; // 1 second zoom
-    const zoomTarget = 8.2; // 8x zoom
+    const duration = 500; // zoom duration
+    const zoomTarget = 8.2;
 
     const easeInOutCubic = (t) =>
       t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
@@ -65,7 +77,6 @@ function App() {
       if (progress < 1) {
         requestAnimationFrame(animate);
       } else {
-        //animation finished, wait 3 seconds before showing page
         setTimeout(() => {
           setShowSplash(false);
           setShowPage(true);
@@ -80,8 +91,24 @@ function App() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden">
+      {/* Splash Background ALWAYS renders instantly */}
+      {showSplash && (
+        <div
+          className="fixed inset-0 overflow-hidden z-50"
+          style={{
+            backgroundImage: `url(${assets.hyveronbackgroundsvg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "top",
+            ...zoomStyle,
+          }}
+        >
+          {/* SplashScreen mounts AFTER delay */}
+          {pageReady && <SplashScreen onFinish={handleSplashFinish} />}
+        </div>
+      )}
+
       {/* Navbar */}
-      {showNavbar && (
+      {pageReady && showNavbar && (
         <Navbar
           activeSection={activeSection}
           setActiveSection={(id) => {
@@ -93,23 +120,8 @@ function App() {
         />
       )}
 
-      {/* Splash Screen with zoom */}
-      {showSplash && (
-        <div
-          className="fixed inset-0 overflow-hidden z-50"
-          style={{
-            backgroundImage: `url(${assets.hyveronbackgroundsvg})`,
-            backgroundSize: "cover",
-            backgroundPosition: "top",
-            ...zoomStyle,
-          }}
-        >
-          <SplashScreen onFinish={handleSplashFinish} />
-        </div>
-      )}
-
       {/* Page Sections */}
-      {showPage && (
+      {pageReady && showPage && (
         <>
           <section id="home" className="min-h-screen">
             <HomeSection />
