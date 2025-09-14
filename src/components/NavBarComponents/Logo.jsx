@@ -8,18 +8,12 @@ export default function Logo({
   showBlogText,
   showContactText,
 }) {
-  const texts = [
-    "Hyveron",
-    "About",
-    "Products",
-    "Insights",
-    "Contact Us",
-  ];
+  const texts = ["Hyveron", "About", "Products", "Insights", "Contact Us"];
 
   return (
     <div className="flex items-center relative">
       <img
-        src={assets.hyveron_mark_white}
+        src={assets.hyveronmarkwhite}
         alt="Hyveron Logo"
         className="h-10 w-10 mr-2 rounded-full"
         style={{ transform: "translateY(-5px)" }}

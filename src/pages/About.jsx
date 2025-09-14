@@ -10,7 +10,7 @@ function AboutSection() {
     >
       <div className="max-w-3xl mx-auto px-4 sm:px-6 w-full text-center">
         <img
-          src={assets.hyveron_mark_gradient}
+          src={assets.hyveronmarkgradient}
           alt="Hyveron Logo"
           className="h-24 w-24 mx-auto mb-6 rounded-full"
           style={{

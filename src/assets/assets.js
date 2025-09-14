@@ -1,36 +1,42 @@
-import hyveron_logo_black from './hyveron_Black - Logo.webp'
-import hyveron_logo_dark from './hyveron_Dark - Logo.webp'
-import hyveron_logo_white from './hyveron_White - Logo.webp'
-import hyveron_logo_gradient from './hyveron_Gradient - Logo.webp'
-import hyveron_logo_light from './hyveron_Light - Logo.webp'
-import hyveron_mark_black from './hyveron_Black - Mark.webp'
-import hyveron_mark_dark from './hyveron_Dark - Mark.webp'
-import hyveron_mark_white from './hyveron_White - Mark.webp'
-import hyveron_mark_gradient from './hyveron_Gradient - Mark.webp'
-import hyveron_mark_light from './hyveron_Light - Mark.webp'
-import hyveron_slogan_black from './hyveron_Black - Slogan.webp'
-import hyveron_slogan_dark from './hyveron_Dark - Slogan.webp'
-import hyveron_slogan_white from './hyveron_White - Slogan.webp'
-import hyveron_slogan_gradient from './hyveron_Gradient - Slogan.webp'
-import hyveron_slogan_light from './hyveron_Light - Slogan.webp'
+import hyveronlogoblack from './hyveronBlackLogo.webp'
+import hyveronlogodark from './hyveronDarkLogo.webp'
+import hyveronlogowhite from './hyveronWhiteLogo.webp'
+import hyveronlogogradient from './hyveronGradientLogo.webp'
+import hyveronlogolight from './hyveronLightLogo.webp'
+import hyveronmarkblack from './hyveronBlackMark.webp'
+import hyveronmarkdark from './hyveronDarkMark.webp'
+import hyveronmarkwhite from './hyveronWhiteMark.webp'
+import hyveronmarkgradient from './hyveronGradientMark.webp'
+import hyveronmarklight from './hyveronLightMark.webp'
+import hyveronsloganblack from './hyveronBlackSlogan.webp'
+import hyveronslogandark from './hyveronDarkSlogan.webp'
+import hyveronsloganwhite from './hyveronWhiteSlogan.webp'
+import hyveronslogangradient from './hyveronGradientSlogan.webp'
+import hyveronsloganlight from './hyveronLightSlogan.webp'
 import hyverongradientbackground from './hyverongradientbackground.avif'
-import hyveron_smoothed_image3 from './smoothed_image3.webp'
+import hyveronsmoothedimage3 from './smoothedimage3.webp'
+import human from './human.webp'
+import bee from './beeFlower.webp'
+import speed from './speed.webp'
 export const assets = {
-    hyveron_logo_black,
-    hyveron_logo_dark,
-    hyveron_logo_white,
-    hyveron_logo_gradient,
-    hyveron_logo_light,
-    hyveron_mark_black,
-    hyveron_mark_dark,
-    hyveron_mark_white,
-    hyveron_mark_gradient,
-    hyveron_mark_light,
-    hyveron_slogan_black,
-    hyveron_slogan_gradient,
-    hyveron_slogan_light,
-    hyveron_slogan_dark,
-    hyveron_slogan_white,
+    hyveronlogoblack,
+    hyveronlogodark,
+    hyveronlogowhite,
+    hyveronlogogradient,
+    hyveronlogolight,
+    hyveronmarkblack,
+    hyveronmarkdark,
+    hyveronmarkwhite,
+    hyveronmarkgradient,
+    hyveronmarklight,
+    hyveronsloganblack,
+    hyveronslogangradient,
+    hyveronsloganlight,
+    hyveronslogandark,
+    hyveronsloganwhite,
     hyverongradientbackground,
-    hyveron_smoothed_image3
+    hyveronsmoothedimage3,
+    human,
+    bee,
+    speed
 }

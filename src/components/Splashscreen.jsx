@@ -44,7 +44,7 @@ function SplashScreen({ onFinish }) {
         <img
           alt="Hyveron Logo"
           className="h-24 w-24 rounded-full"
-          src="/src/assets/hyveron_White%20-%20Mark.webp"
+          src={assets.hyveronmarkwhite}
         />
         <span
           className={`text-5xl font-bold font-brand tracking-tight ml-4 transition-opacity duration-1000 ${

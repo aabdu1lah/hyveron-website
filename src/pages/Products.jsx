@@ -4,9 +4,9 @@ import Slider from "react-slick";
 import { colors } from "../constants/colors.js";
 import ProductCard from "../components/Cards/ProductCard.jsx";
 import SliderArrows from "../components/Cards/SliderArrows.jsx";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { assets } from "../assets/assets.js";
 
 function ProductsSection() {
   const sliderRef = useRef(null);
@@ -17,20 +17,20 @@ function ProductsSection() {
       id: "product-a",
       name: "bee",
       description: "beeeeeeeeeeeee",
-      image: "/src/assets/bee_flower.webp",
+      image: assets.bee,
     },
     {
       id: "product-b",
       name: "person",
       description: "person is a human being, a member of the species",
-      image: "./src/assets/jew.webp",
+      image: assets.human,
     },
     {
       id: "product-c",
       name: "Top 10 reasons why speed is a baddie",
       description:
         "The title says it all. Speed is bad, mkay? Don't do speed, kids.",
-      image: "./src/assets/speed.webp",
+      image: assets.speed,
     },
     // ...other products (clean versions)
   ];
