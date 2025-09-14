@@ -13,7 +13,7 @@ import hyveron_slogan_dark from './hyveron_Dark - Slogan.webp'
 import hyveron_slogan_white from './hyveron_White - Slogan.webp'
 import hyveron_slogan_gradient from './hyveron_Gradient - Slogan.webp'
 import hyveron_slogan_light from './hyveron_Light - Slogan.webp'
-import hyveron_background_gradient from './hyveron_Gradient - background.webp'
+import hyverongradientbackground from './hyverongradientbackground.webp'
 import hyveron_smoothed_image3 from './smoothed_image3.webp'
 export const assets = {
     hyveron_logo_black,
@@ -31,6 +31,6 @@ export const assets = {
     hyveron_slogan_light,
     hyveron_slogan_dark,
     hyveron_slogan_white,
-    hyveron_background_gradient,
+    hyverongradientbackground,
     hyveron_smoothed_image3
 }
